@@ -52,7 +52,7 @@ button {
     width: 510px;
     height: 510px;
     box-shadow: 15px 15px 15px grey;
-    border: 5px solid white;
+    border: 4px solid rgb(255, 255, 255);
     border-radius: 5px;
     margin-left: 170px;
 }
