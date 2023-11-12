@@ -36,7 +36,7 @@ function buildGrid(val) {
 
 function cleanupGrid() {
     while(sketchpad.firstChild) sketchpad.removeChild(sketchpad.firstChild)
-    colorpicker.value = "black"
+    colorpicker.value = "#0000ff"
 }
 
 const range = document.querySelector("#range")
