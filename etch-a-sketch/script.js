@@ -1,7 +1,17 @@
 const sketchpad = document.querySelector(".sketchpad");
 const colorpicker = document.querySelector("#colorpicker");
+const random = document.querySelector(".random");
 const eraser = document.querySelector(".erase");
 const clear = document.querySelector(".clear")
+
+function randomColorGenerator() {
+    color = '#'
+    letters = 'abcdef0123456789';
+    for(let i=0; i<6; i++) {
+        color += letters.charAt(Math.floor(Math.random()*letters.length))
+    }
+    return color;
+}
 
 function buildGrid(val) {
     sketchpad.style.gridTemplateColumns = `repeat(${val}, 2fr)`;
@@ -17,6 +27,11 @@ function buildGrid(val) {
             box.addEventListener("mouseover", () => {
                 box.style.backgroundColor = colorpicker.value 
             })
+        })
+
+        // Random
+        random.addEventListener("click", () => {
+            colorpicker.value = randomColorGenerator()
         })
 
         // Eraser
@@ -36,14 +51,13 @@ function buildGrid(val) {
 
 function cleanupGrid() {
     while(sketchpad.firstChild) sketchpad.removeChild(sketchpad.firstChild)
-    colorpicker.value = "#0000ff"
+    colorpicker.value = "#3t5kk3"
 }
 
 const range = document.querySelector("#range")
 const screenValue = document.querySelector(".value");
 range.addEventListener("input", () => {
     let val = document.getElementById('range').value;
-    console.log(val)
     screenValue.textContent = val
     cleanupGrid()
     buildGrid(val)
