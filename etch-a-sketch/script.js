@@ -2,7 +2,9 @@ const sketchpad = document.querySelector(".sketchpad");
 const colorpicker = document.querySelector("#colorpicker");
 const random = document.querySelector(".random");
 const eraser = document.querySelector(".erase");
-const clear = document.querySelector(".clear")
+const clear = document.querySelector(".clear");
+const range = document.querySelector("#range")
+const screenValue = document.querySelector(".value");
 
 function randomColorGenerator() {
     color = '#'
@@ -51,17 +53,14 @@ function buildGrid(val) {
 
 function cleanupGrid() {
     while(sketchpad.firstChild) sketchpad.removeChild(sketchpad.firstChild)
-    colorpicker.value = "#3t5kk3"
+    colorpicker.value = "#0000ff"
 }
 
-const range = document.querySelector("#range")
-const screenValue = document.querySelector(".value");
 range.addEventListener("input", () => {
-    let val = document.getElementById('range').value;
+    let val = range.value;
     screenValue.textContent = val
     cleanupGrid()
     buildGrid(val)
 })
 
-
-buildGrid(20)
+buildGrid(20);
